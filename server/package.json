@@ -5,6 +5,9 @@
   "repository": "https://github.com/komlalex/pallink.git",
   "author": "Alexander Kunyelewosi",
   "license": "MIT",
+  "scripts": {
+    "devStart": "nodemon index"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
