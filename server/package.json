@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "https://github.com/komlalex/pallink.git",
   "author": "Alexander Kunyelewosi",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
