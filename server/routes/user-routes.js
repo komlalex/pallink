@@ -2,10 +2,11 @@ const User = require("../models/user-model");
 const express = require("express");
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.json({success: true, message: "Registration Successful"})
-})
+//Import controller functions 
+const {addUser, getAllUsers, updateUser} = require("../controllers/user-controllers")
+
+router.post("/register", addUser); 
+router.get("/", getAllUsers);
+router.put("/:userId", updateUser);
 
 module.exports = router;
