@@ -64,9 +64,21 @@ const deletePostById = async (req, res) => {
         return res.json({success: true, message: "Post deletion successful."});
     } catch (err) {
         return res.json({success: false, message: "Post deletion failed"});
-    }
-        
-    
+    }         
 }
 
-module.exports = {createPost, getAllPosts, getAllPostsByPosterId, deletePostById}
+const updatePost = async (req, res) => {
+    const postId = req.params.postId;
+    const {text, media, visibility, tags} = req.body;
+
+    if (!postId) return res.status(400).json({sucess: false, message: "Update failed"});
+
+    try {
+        await Post.findByIdAndUpdate(postId, {text: text, visibility: visibility, media: media, tags: tags});
+        return res.json({success:true, message: "Update Successful."});
+    } catch (err) {
+        return res.json({success: false, message: "Update failed"});
+    }
+}
+
+module.exports = {createPost, getAllPosts, getAllPostsByPosterId, deletePostById, updatePost}
