@@ -5,11 +5,13 @@ require("dotenv").config()
 
 //Importing routes
 const userRouter = require("./routes/user-routes");
+const postRouter = require("./routes/post-routes")
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use("/users", userRouter);  
+app.use("/posts", postRouter);
 
 
 mongoose.connect(process.env.MONGO_URL).

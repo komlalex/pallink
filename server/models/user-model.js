@@ -42,6 +42,12 @@ const userSchema = new Schema ({
         data: Buffer,     
         contentType: String,
       
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now
+        
     }
 
 });

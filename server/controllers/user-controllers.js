@@ -14,9 +14,9 @@ const addUser = async (req, res) => {
         
         if (validationResponse.valid === false ) return res.status(400).json({success: false, message: "Invalid Email"});
     // Check for the existence of the email in the database and prevent reusing
-        const usedEmail = await User.find({}).where("email").eq(email);
-        
-        if (usedEmail) return res.status(400).json({success: false, message: "Email already used. Please log in."})
+        const usedEmail = await User.find().where("email").eq(email);
+    
+        if (usedEmail.length > 0) return res.status(400).json({success: false, message: "Email already used. Please log in."})
         
 
         try {
@@ -41,13 +41,13 @@ const getAllUsers = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const id = req.params.id;
-    
+    //CONTINUE HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     if (!id) return res.status(400).json({success: false, message: "User not recognized"});
 
     try {
         
-    } catch (err) {
-        
+    } catch (err) {   
+        res.json({success: false, message: err.message})
     }
 }
 const login = async (req, res) => {
