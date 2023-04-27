@@ -1,5 +1,6 @@
 const User = require("../models/user-model");
-const {validate} = require("deep-email-validator")
+const {validate} = require("deep-email-validator");
+const bcrypt = require("bcryptjs");
 
 const addUser = async (req, res) => {
     const {firstname, lastname, email, password} = req.body;
@@ -19,13 +20,26 @@ const addUser = async (req, res) => {
         if (usedEmail.length > 0) return res.status(400).json({success: false, message: "Email already used. Please log in."})
         
 
-        try {
-            userToAdd = new User({firstname, lastname, email, password});
-            await userToAdd.save();
-            res.status(201).json({success: true, message: "Registration Successful"})
-        } catch (err) {
-            res.json({success: false, message: err.message})
-        }
+        //Hashing the password before storing it
+            
+            bcrypt.genSalt(10, (err, salt) => {
+                if (err) return res.json({success: false, message: "Something went wrong on our side!"});
+
+                bcrypt.hash(password, salt, async (err, hash) => {
+                    if (err) return res.json({success: false, message: "Something went wrong on our side!"});
+
+                    try {
+                        userToAdd = new User({firstname, lastname, email, password: hash});
+                        await userToAdd.save();
+                        res.status(201).json({success: true, message: "Registration Successful"})
+                    } catch (err) {
+                        return res.json({success: false, message: err.message})
+                    }
+                })
+            })
+            
+        
+        
     }
 }
 

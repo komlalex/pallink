@@ -25,8 +25,7 @@ const userSchema = new Schema ({
     password: {
         type: String,
         required: true,
-        minLength: 8,
-        maxLength: 15
+        minLength: 8
     },
     nickname: {
         type: String,
