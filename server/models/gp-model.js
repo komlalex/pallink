@@ -1,26 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const reportSchema = new Schema({
-    reporterId: {
+const gmSchema = new Schema({
+    groupId: {
         type: String,
         required: true
     },
-    reportType: {
+    senderId: {
         type: String,
         required: true
     },
-    itemId: {
+    message: {
         type: String,
         required: true
-    },
-    reviewed: {
-        type: Boolean,
-        required: true,
-        default: false
     },
     createdAt: {
-        type: Date,
+        type: String,
         required: true,
         default: Date.now
     }
 })
+
+module.exports = mongoose.model("Gm", gmSchema);
