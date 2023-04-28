@@ -32,4 +32,4 @@ const dmSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Dm", dmSchema);
+module.exports = mongoose.model("DMessage", dmSchema);

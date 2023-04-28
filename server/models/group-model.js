@@ -5,6 +5,14 @@ const groupSchema = new Schema({
         type: String,
         required: true
     },
+    creatorId: {
+        type: String,
+        required: true
+    },
+    adminsId: {
+        type: Array,
+        required: true
+    },
     about: {
         type: String,
         required: false

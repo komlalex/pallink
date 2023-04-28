@@ -7,7 +7,8 @@ require("dotenv").config()
 const userRouter = require("./routes/user-routes");
 const postRouter = require("./routes/post-routes");
 const commentRouter = require("./routes/comment-routes");
-const dmRouter = require("./routes/dm-route");
+const dmRouter = require("./routes/dmessage-route");
+const gmRouter = require("./routes/gmessage-routes");
 
 
 app.use(express.json());
@@ -15,7 +16,8 @@ app.use(express.urlencoded({extended: true}))
 app.use("/users", userRouter);  
 app.use("/posts", postRouter);
 app.use("/comments", commentRouter);
-app.use("/dm", dmRouter);
+app.use("/dmessages", dmRouter);
+app.use("/gmessages", gmRouter);
 
 
 mongoose.connect(process.env.MONGO_URL).

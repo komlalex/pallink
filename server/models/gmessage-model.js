@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const gmSchema = new Schema({
+const gMessageSchema = new Schema({
     groupId: {
         type: String,
         required: true
     },
-    senderId: {
+    senderId: { 
         type: String,
         required: true
     },
@@ -20,4 +20,4 @@ const gmSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("Gm", gmSchema);
+module.exports = mongoose.model("GMesages", gMessageSchema);

@@ -1,4 +1,4 @@
-const Dm = require("../models/dm-model");
+const DMessage = require("../models/dmessage-model");
 
 const createMessage = async (req, res) => {
 
