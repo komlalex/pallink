@@ -13,6 +13,10 @@ const groupSchema = new Schema({
         type: Array,
         required: true
     },
+    rules: {
+        type: Array,
+        required: false
+    },
     about: {
         type: String,
         required: false

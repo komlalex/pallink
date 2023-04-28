@@ -9,7 +9,7 @@ const reactionModel = new Schema({
         type: String,
         required: true
     },
-    reaction: {
+    reactionType: {
         type: Number,
         required: true
     }

@@ -13,7 +13,7 @@ const reportSchema = new Schema({
         type: String,
         required: true
     },
-    reviewed: {
+    isReviewed: {
         type: Boolean,
         required: true,
         default: false

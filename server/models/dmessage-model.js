@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const dmSchema = new Schema({
-    sender: {
+    senderId: {
         type: String,
         required: true
     },
-    recipient: {
+    recipientId: {
         type: String,
         required: true
     },
