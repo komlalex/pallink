@@ -13,6 +13,11 @@ const commentSchema = new Schema ({
     commentBody: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
 
