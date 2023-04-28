@@ -69,21 +69,28 @@ const deleteComment = async (req, res) => {
     
     try {
         await Comment.findByIdAndDelete(commentId);
-        res.status(200).json({success: true, message: "Comment deleted"})
+        return res.status(200).json({success: true, message: "Comment deleted"})
     } catch (err) {
-        res.json({success: false, message: "Deletion failed"})
+        return res.json({success: false, message: "Deletion failed"})
     }
 
 }
 
-/*
-const updateComent = async (req, res) => {
 
-}
-const deleteComment = async (req, res) {
+const updateComment = async (req, res) => {
+    const commentId = req.params.commentId;
+    const {commentBody} = req.body;
+    const newCommentBody = commentBody.trim();
 
+    if (!newCommentBody) return res.status(400).json({success: false, message: "Please enter commment"});
+
+    try {
+        await Comment.findByIdAndUpdate(commentId, {commentBody: newCommentBody});
+        return res.status(200).json({success: true, message: "Comment Update Successful"})
+    } catch (err) {
+        return res.json({success: false, message: "Update failed: " + err.message})
+    }
 }
-*/
 
 //CHANGE THE createPost route TO AVOID EXPOSING THE USER'S ID
-module.exports = {createComment, getAllCommentsUnderAPost, deleteComment};
+module.exports = {createComment, getAllCommentsUnderAPost, deleteComment, updateComment};
