@@ -2,7 +2,8 @@ const Post = require("../models/post-model");
 const User = require("../models/user-model");
 
 const createPost = async (req, res) => {
-    const {posterId, text, media, tags, visibility, createdAt} = req.body;
+    const posterId = req.params.posterId;
+    const {text, media, tags, visibility, createdAt} = req.body;
     let checkPoster;
 
     if (!posterId || !posterId.trim() || !text || !text.trim()) {

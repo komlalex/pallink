@@ -23,10 +23,10 @@ const addUser = async (req, res) => {
         //Hashing the password before storing it
             
             bcrypt.genSalt(10, (err, salt) => {
-                if (err) return res.json({success: false, message: "Something went wrong on our side!"});
+                if (err) return res.status(500).json({success: false, message: "Something went wrong on our side!"});
 
                 bcrypt.hash(password, salt, async (err, hash) => {
-                    if (err) return res.json({success: false, message: "Something went wrong on our side!"});
+                    if (err) return res.stastus(500).json({success: false, message: "Something went wrong on our side!"});
 
                     try {
                         userToAdd = new User({firstname, lastname, email, password: hash});
