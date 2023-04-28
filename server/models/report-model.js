@@ -5,7 +5,7 @@ const reportSchema = new Schema({
         type: String,
         required: true
     },
-    reportType: {
+    reportType: { 
         type: String,
         required: true
     },
@@ -23,4 +23,5 @@ const reportSchema = new Schema({
         required: true,
         default: Date.now
     }
-})
+});
+module.exports = mongoose.model("Report", reportSchema);

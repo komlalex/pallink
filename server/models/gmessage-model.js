@@ -20,4 +20,4 @@ const gMessageSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("GMesages", gMessageSchema);
+module.exports = mongoose.model("GMessages", gMessageSchema);

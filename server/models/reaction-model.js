@@ -5,7 +5,7 @@ const reactionModel = new Schema({
         type: String,
         required: true
     },
-    userId: { 
+    userId: {  
         type: String,
         required: true
     },

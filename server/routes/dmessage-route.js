@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {createMessage} = require("../controllers/dm-controllers")
+const {createMessage} = require("../controllers/dmessage-controllers")
 
 router.post("/:recipientId", createMessage);
 
