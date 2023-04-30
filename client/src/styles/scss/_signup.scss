@@ -1,0 +1,42 @@
+.signup {
+    background-color: $primary-color;
+    width: 100%;
+    min-height: 100vh;
+
+    h2 {
+       width: 80%;
+       margin: 1rem auto;
+       text-align: center;
+    }
+
+    form {
+        background-color: rgb(3, 146, 3);
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        border-radius: 5px;
+        margin: 1rem auto;
+
+        label {
+            color: white
+        }
+
+        input {
+            height: 1.5rem;
+        }
+        button {
+            background-color: rgb(3, 146, 3);
+            height: 1.5rem;
+            border: 2px black solid;
+            border-radius: 2px;
+        }
+        button:hover {
+            background-color: whitesmoke;
+            
+        }
+
+        .errorMessage {
+            color: rgb(163, 11, 11);
+        }
+    }
+}

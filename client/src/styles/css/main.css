@@ -123,4 +123,41 @@
 }
 .landing p {
   font-size: 1.5rem;
+}
+
+.signup {
+  background-color: #09f638;
+  width: 100%;
+  min-height: 100vh;
+}
+.signup h2 {
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.signup form {
+  background-color: rgb(3, 146, 3);
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-radius: 5px;
+  margin: 1rem auto;
+}
+.signup form label {
+  color: white;
+}
+.signup form input {
+  height: 1.5rem;
+}
+.signup form button {
+  background-color: rgb(3, 146, 3);
+  height: 1.5rem;
+  border: 2px black solid;
+  border-radius: 2px;
+}
+.signup form button:hover {
+  background-color: whitesmoke;
+}
+.signup form .errorMessage {
+  color: rgb(163, 11, 11);
 }/*# sourceMappingURL=main.css.map */
