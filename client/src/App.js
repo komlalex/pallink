@@ -6,10 +6,11 @@ function App() {
       <header className="App-header">
         
         <h1>Hello world!!!</h1>
-
-        <svg></svg>
-         
       </header>
+
+      <body >
+        <div className='bg-demo'>New BG</div>
+      </body>
     </div>
   );
 }
