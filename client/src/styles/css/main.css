@@ -149,6 +149,16 @@
 .signup form input {
   height: 1.5rem;
 }
+.signup form .password-input-group {
+  width: 100%;
+}
+.signup form .password-input-group input {
+  width: 95%;
+}
+.signup form .password-input-group button {
+  border: 0;
+  width: 5%;
+}
 .signup form button {
   background-color: rgb(3, 146, 3);
   height: 1.5rem;
@@ -159,5 +169,52 @@
   background-color: whitesmoke;
 }
 .signup form .errorMessage {
+  color: rgb(163, 11, 11);
+}
+
+.signin {
+  background-color: #09f638;
+  width: 100%;
+  min-height: 100vh;
+}
+.signin h2 {
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.signin form {
+  background-color: rgb(3, 146, 3);
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-radius: 5px;
+  margin: 1rem auto;
+}
+.signin form label {
+  color: white;
+}
+.signin form input {
+  height: 1.5rem;
+}
+.signin form .password-input-group {
+  width: 100%;
+}
+.signin form .password-input-group input {
+  width: 95%;
+}
+.signin form .password-input-group button {
+  border: 0;
+  width: 5%;
+}
+.signin form button {
+  background-color: rgb(3, 146, 3);
+  height: 1.5rem;
+  border: 2px black solid;
+  border-radius: 2px;
+}
+.signin form button:hover {
+  background-color: whitesmoke;
+}
+.signin form .errorMessage {
   color: rgb(163, 11, 11);
 }/*# sourceMappingURL=main.css.map */

@@ -9,7 +9,7 @@ function Landing() {
             <div className='navbar-links'>
                 <ul>
                     <li><a href="#f">Sign Up</a></li>
-                    <li><a href="#f">Log In</a></li>
+                    <li><a href="#f">Sign In</a></li>
                 </ul>
             </div>
         </nav>

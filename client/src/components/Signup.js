@@ -1,8 +1,10 @@
-import React from 'react';
+import {useState} from 'react';
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import {FaEye, FaEyeSlash} from "react-icons/fa"
 
 function Signup() {
+    const [showPassword, setShowPassword] = useState(false)
     const formik = useFormik({
         initialValues: {
             firstName: "",
@@ -11,10 +13,10 @@ function Signup() {
             password: ""
         },
         validationSchema: Yup.object({
-            firstName: Yup.string().max(15, "Must be 15 characters or less").required("Required"),
-            lastName: Yup.string().max(15, "Must be 15 characters or less").required("Required"),
-            email: Yup.string().email("Invalid email").required("Required"),
-            password: Yup.string().max(15, "Must be 15 characters or less").required("Required")
+            firstName: Yup.string().trim().max(15, "Must be 15 characters or less").required("Required"),
+            lastName: Yup.string().trim().max(15, "Must be 15 characters or less").required("Required"),
+            email: Yup.string().trim().email("Invalid email").required("Required"),
+            password: Yup.string().trim().max(15, "Must be 15 characters or less").required("Required")
         }),
         onSubmit: values => {
             console.log(values)
@@ -24,6 +26,10 @@ function Signup() {
     <div className='signup'>
         <h2>Sign Up Form</h2>
     <form onSubmit={formik.handleSubmit}>
+
+
+
+        
         <label htmlFor='firstName'>First Name</label>
         {formik.touched.firstName && formik.errors.firstName ? (
             <div className="errorMessage" >{formik.errors.firstName}</div>
@@ -50,6 +56,9 @@ function Signup() {
         value = {formik.values.lastName}
         onBlur={formik.handleBlur}/>
 
+
+
+
         <label htmlFor='email'>Email</label>
         {formik.touched.email && formik.errors.email ? (
             <div className="errorMessage">{formik.errors.email}</div>
@@ -62,17 +71,19 @@ function Signup() {
          value = {formik.values.email}
          onBlur={formik.handleBlur}/>
 
+         
+
+
         <label htmlFor='password'>Password</label>
-        {formik.touched.password && formik.errors.password ? (
-            <div className="errorMessage">{formik.errors.password}</div>
-        ): null
-        }
-        <input type='password' 
-        id='password' 
-        name="password" 
-        onChange={formik.handleChange} 
-        value = {formik.values.password}
-        onBlur={formik.handleBlur}/>
+        <div className='password-input-group'> 
+            <input type= {showPassword? "text" : "password"} 
+            id='password' 
+            name="password" 
+            onChange={formik.handleChange} 
+            value = {formik.values.password}
+            onBlur={formik.handleBlur}/>
+            <button type='button' onClick = {() => setShowPassword(!showPassword)}>{showPassword? <FaEye/> : <FaEyeSlash/>}</button>
+        </div>
 
 
         <button type="submit">Sign Up</button>
