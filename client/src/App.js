@@ -1,11 +1,13 @@
 import "./styles/css/main.css";
 //import Navbar from "./components/Navbar";
-import Signup from "./components/Signup"
+import Footer from "./components/Footer";
+import Landing from "./components/Landing"
 
 function App() {
   return (
     <div>
-      <Signup/>
+      <Landing/>
+      <Footer/>
     </div>
   );
 }

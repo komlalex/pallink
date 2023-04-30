@@ -217,4 +217,32 @@
 }
 .signin form .errorMessage {
   color: rgb(163, 11, 11);
+}
+
+.footer {
+  width: 100%;
+  height: 50px;
+  background-color: #222;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .copyright a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+.footer .footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+.footer .footer-links li {
+  margin: 0.3rem 1rem;
+}
+.footer .footer-links li a {
+  color: whitesmoke;
+  text-decoration: none;
 }/*# sourceMappingURL=main.css.map */
