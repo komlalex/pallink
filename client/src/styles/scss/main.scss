@@ -1,0 +1,16 @@
+@import "./_variables.scss";
+
+h1 {
+    color: #09f638;
+    font-size: 3rem;
+  
+  }
+  
+  body {
+    background-image: url("../../assets/green-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+  }
