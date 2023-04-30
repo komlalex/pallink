@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config()
 
 //Importing routes
-const userRouter = require("./routes/user-routes");
+const userRouter = require("./routes/user-routes");  
 const postRouter = require("./routes/post-routes");
 const commentRouter = require("./routes/comment-routes");
 const dmessageRouter = require("./routes/dmessage-route");
