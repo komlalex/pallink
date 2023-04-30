@@ -1,3 +1,21 @@
 h1 {
   color: green
 }
+
+svg {
+  width: 150px; /* set the width of the SVG element */
+  height: 150px; /* set the height of the SVG element */
+  fill: #1a1a1a; /* set the text color */
+  font-size: 28px; /* set the font size */
+  font-weight: bold; /* set the font weight */
+  letter-spacing: 2px; /* add some letter spacing for readability */
+  fill: #00bfff; /* set the color of the icon */
+}
+
+.logo-text {
+  
+}
+
+.logo-icon {
+  
+}
