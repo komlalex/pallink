@@ -11,7 +11,7 @@ function People() {
     <div>
         {
             data.message.map ((user, index) => {
-                return <div key ={index}>{user.firstname}</div>
+                return <div key ={index}>{user.lastname}</div>
             })
         }
     </div>

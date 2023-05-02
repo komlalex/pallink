@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import {useFormik} from "formik";
 import * as Yup from "yup";
-import {FaEye, FaEyeSlash} from "react-icons/fa"
+import {FaEye, FaEyeSlash} from "react-icons/fa";
+import axios from "axios";
 
 function Signup() {
     const [showPassword, setShowPassword] = useState(false)
@@ -19,7 +20,12 @@ function Signup() {
             password: Yup.string().trim().max(15, "Must be 15 characters or less").required("Required")
         }),
         onSubmit: values => {
-            console.log(values)
+
+            const user = {firstname: values.firstName, lastname: values.lastName, email: values.email, password: values.password}
+            axios.post("http://localhost:1776/users/register", user)
+            .then(res => {
+        
+            }).catch(err => console.log(err)) 
         }
     })
   return (
