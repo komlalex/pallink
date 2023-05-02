@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config()
+const cors = require("cors");
 
 //Importing routes
 const userRouter = require("./routes/user-routes");  
@@ -15,6 +16,7 @@ const reportRouter = require("./routes/report-routes");
 const statusRouter = require("./routes/status-route");
 
 
+app.use(cors());  
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use("/users", userRouter);  
@@ -24,8 +26,8 @@ app.use("/dmessages", dmessageRouter);
 app.use("/gmessages", gmessageRouter);
 app.use("reaction", reactionRouter);
 app.use("/friends", friendRouter);
-app.use("/reports", reportRouter);
-app.use("/status", statusRouter)
+app.use("/reports", reportRouter);    
+app.use("/status", statusRouter);       
 
 
 mongoose.connect(process.env.MONGO_URL).

@@ -4,7 +4,7 @@ const router = express.Router();
 //Import controller functions 
 const {addUser, getAllUsers, updateUser} = require("../controllers/user-controllers")
 
-router.post("/register", addUser); 
+router.post("/register", addUser);  
 router.get("/", getAllUsers);
 router.put("/:userId", updateUser);
 

@@ -1,6 +1,11 @@
 const User = require("../models/user-model");
-const {validate} = require("deep-email-validator");
+const {VerifaliaRestClient} = require("verifalia");
 const bcrypt = require("bcryptjs");
+
+const verifalia = new VerifaliaRestClient({
+    username: "kunalexander360@gmail.com",
+    password: "kunalex//1776"
+});
 
 const addUser = async (req, res) => {
     const {firstname, lastname, email, password} = req.body;
@@ -11,13 +16,16 @@ const addUser = async (req, res) => {
         return res.status(400).json({success: false, message: "You left a required field empty"})
     } else {
     //validate email with deep-email-validator
-        const validationResponse = await validate(email);
-        
-        if (validationResponse.valid === false ) return res.status(400).json({success: false, message: "Invalid Email"});
+        const result = await verifalia.emailValidations.submit(email);
+            const entry = result.entries[0];
+
+            if (entry.classification === "Undeliverable" || entry.status !== "Success") return res.json({success: false, message: "Invalid Email address. Use a valid email."});
+
+         
     // Check for the existence of the email in the database and prevent reusing
         const usedEmail = await User.find().where("email").eq(email);
     
-        if (usedEmail.length > 0) return res.status(400).json({success: false, message: "Email already used. Please log in."})
+        if (usedEmail.length > 0) return res.json({success: false, message: "Email already used. Please log in."})
         
 
         //Hashing the password before storing it
