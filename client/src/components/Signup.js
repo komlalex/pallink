@@ -24,7 +24,7 @@ function Signup() {
             const user = {firstname: values.firstName, lastname: values.lastName, email: values.email, password: values.password}
             axios.post("http://localhost:1776/users/register", user)
             .then(res => {
-        
+                alert(res.data.message);
             }).catch(err => console.log(err)) 
         }
     })

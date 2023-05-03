@@ -298,4 +298,12 @@
   .chats-small nav ul li:hover {
     background-color: #222;
   }
+}
+.create-post {
+  display: flex;
+  flex-direction: column;
+}
+.create-post input {
+  height: 30px;
+  z-index: 1000;
 }/*# sourceMappingURL=main.css.map */
