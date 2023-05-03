@@ -3,11 +3,24 @@ const User = require("../models/user-model");
 
 const createPost = async (req, res) => {
     const posterId = req.params.posterId;
-    const {text, media, tags, visibility, createdAt} = req.body;
+    const {text, visibility, tags} = req.body;
+    const trimmedText = text.trim();
+    let media;
+
+    if (req.file) {
+        media = {
+            data: req.file.buffer,
+            contentType: req.file.mimetype
+        }
+    }
+    
+   
+    if (!media && !trimmedText) return res.json({success: false, message: "Nothing to post here!!!"})
+
     let checkPoster;
 
-    if (!posterId || !posterId.trim() || !text || !text.trim()) {
-        res.status(400).json({success: false, message: "You left a required field empty"})
+    if (!posterId) {
+        res.json({success: false, message: "You left a required field empty"})
     } else {
         try {
             checkPoster = await User.find().where("_id").eq(posterId);
@@ -15,19 +28,20 @@ const createPost = async (req, res) => {
             
         } catch (err) {
             if (!checkPoster) {
-                return res.status(404).json({success: false, message: "Unauthorized! Please log in. "});
+                return res.json({success: false, message: "Unauthorized! Please log in. "});
             }
         }
         
         
         try {
-            const newPost = new Post({posterId, text, media, tags, visibility, createdAt});
+            const newPost = new Post({posterId, text: trimmedText, media: media, tags, visibility});
             newPost.save();
             return res.status(201).json({success: true, message: "Post created successfully."})
         } catch (err) {
             return res.json({success: false, message: err.message});
         }
     } 
+    
 }
 
 const getAllPosts = async (req, res) => {

@@ -16,11 +16,17 @@ const addUser = async (req, res) => {
         return res.status(400).json({success: false, message: "You left a required field empty"})
     } else {
     //validate email with deep-email-validator
-        const result = await verifalia.emailValidations.submit(email);
+
+        try {
+            const result = await verifalia.emailValidations.submit(email);
             const entry = result.entries[0];
 
             if (entry.classification === "Undeliverable" || entry.status !== "Success") return res.json({success: false, message: "Invalid Email address. Use a valid email."});
 
+        } catch (err) {
+           return res.json({success: false, message: "You are appear to be offline. Please check your internet connection"})
+        }
+        
          
     // Check for the existence of the email in the database and prevent reusing
         const usedEmail = await User.find().where("email").eq(email);
